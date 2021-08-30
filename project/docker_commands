@@ -1,11 +1,47 @@
-## Docker commands used to build the application 
-# TODO: insert the docker build command
+## Docker commands used to build the application
+docker build --network=host --tag=techtrends .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
+docker run -d -p 7111:3111 --name techtrends  techtrends
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+docker logs techtrends -f
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:27:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:27:55] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:27:56] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:36] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:36] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:38] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:39] "GET /create HTTP/1.1" 200 -
+INFO:app:2021/08/31 07:28:42, A new article is created. The title of the new article should be recorded in the logline.
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:42] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:42] "GET / HTTP/1.1" 200 -
+INFO:app:2021/08/31 07:28:43, The "About Us" page is retrieved.
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:43] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:44] "GET /create HTTP/1.1" 200 -
+INFO:app:2021/08/31 07:28:44, The "About Us" page is retrieved.
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:44] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:45] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:45] "GET / HTTP/1.1" 200 -
+INFO:app:2021/08/31 07:28:46, Article "2020 CNCF Annual Report" retrieved!
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:46] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:47] "GET / HTTP/1.1" 200 -
+INFO:app:2021/08/31 07:28:48, Article "KubeCon + CloudNativeCon 2021" retrieved!
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:48] "GET /2 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:49] "GET / HTTP/1.1" 200 -
+INFO:app:2021/08/31 07:28:50, Article "ffdsfs" retrieved!
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:50] "GET /8 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:51] "GET / HTTP/1.1" 200 -
+INFO:app:2021/08/31 07:28:52, Article "asda" retrieved!
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:52] "GET /7 HTTP/1.1" 200 -
+INFO:werkzeug:172.17.0.1 - - [31/Aug/2021 07:28:54] "GET / HTTP/1.1" 200 -
+karol@ubuntu:~/nd064_course_1/project$ ifconfig
+docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        ether 02:42:b0:b4:4a:9a  txqueuelen 0  (Ethernet)
+        RX packets 705  bytes 83216 (83.2 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 479  bytes 47907 (47.9 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
