@@ -83,16 +83,32 @@ def about():
     return render_template('about.html')
 
 
+def check_application():
+    try:
+        connection = get_db_connection()
+        connection.execute('SELECT * FROM posts').fetchall()
+        connection.close()
+        return True
+    except:
+        return False
+
+
 @app.route('/healthz')
 def healthy():
-    response = app.response_class(
+    app.logger.info('Healthz request')
+
+    if not check_application():
+        return app.response_class(
+            response=json.dumps({"result": "ERROR - unhealthy"}),
+            status=500,
+            mimetype='application/json'
+        )
+
+    return app.response_class(
         response=json.dumps({"result": "OK - healthy"}),
         status=200,
         mimetype='application/json'
     )
-
-    app.logger.info('Healthz request')
-    return response
 
 
 @app.route('/metrics')
