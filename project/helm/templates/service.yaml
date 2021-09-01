@@ -4,13 +4,17 @@ metadata:
   labels:
     app: techtrends
   name: techtrends
-  namespace: {{ .Values.namespace.name }} 
+  namespace: {{ .Values.namespace.name }}
 spec:
   ports:
-  - port: {{ .Values.service.port }} 
+  - port: {{ .Values.service.port }}
     protocol: TCP
-    targetPort:  {{  if .Values.service.targetPort .Values.service.targetPort .Values.service.port }}
+    {{- if .Values.service.targetPort }}
+    targetPort: {{ .Values.service.targetPort }}
+    {{- else }}
+    targetPort: {{ .Values.service.port }}
+    {{- end }}
 
   selector:
     app: techtrends
-  type: {{ .Values.service.type }} 
+  type: {{ .Values.service.type }}
