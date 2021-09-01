@@ -3,13 +3,12 @@ namespace:
 
 service:
   port: 5111
-  targetPort: 3111
   protocol: TCP
   type: ClusterIP
 
 image:
   repository: rolak/techtrends
-  tag: v1.0
+  tag: main
   pullPolicy: IfNotPresent
 
 replicaCount: 3
