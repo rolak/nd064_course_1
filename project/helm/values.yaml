@@ -9,7 +9,7 @@ service:
 
 image:
   repository: rolak/techtrends
-  tag: latest
+  tag: main
   pullPolicy: IfNotPresent
 
 replicaCount: 1
